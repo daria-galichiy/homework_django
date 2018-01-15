@@ -1,0 +1,15 @@
+{% extends 'main_page.html' %}
+{% block title1 %}<title>Registration</title>{% endblock %}
+{% block title2 %}
+    <div id="header"><h1>Registration</h1></div>
+{% endblock %}
+{% block body %}
+    <form method= "POST">
+        <div class="auth_block">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type= "submit"> Зарегистрироваться </button>
+        </div>
+    <br><br>
+    </form>
+{% endblock %}

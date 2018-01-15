@@ -1,0 +1,33 @@
+{% extends 'main_page.html' %}
+{% block title1 %}<title>Login</title>{% endblock %}
+{% block title2 %}
+    <div id="header"><h1>Login</h1></div>
+{% endblock %}
+{% block body %}
+    <form method= "POST">
+        <div class="auth_block">
+            {% csrf_token %}
+            <div class="auth_blank">
+                <div class="form-group">
+                    <label>
+                        Логин:
+                        <input type= "text" name= "username">
+                    </label>
+                </div>
+            </div>
+            <div class="auth_blank">
+                <div class="form-group">
+                    <label>
+                        Пароль:
+                        <input type= "password" name= "password">
+                    </label>
+                </div>
+            </div>
+            {% if error != "" %}
+                <p>{{ error }}</p>
+            {% endif %}
+            <button type="submit">Войти</button>
+            <br><br><br>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'main_page.html' %}
+{% block title1 %}<title>Account</title>{% endblock %}
+{% block title2 %}
+    <div id="header"><h1>Account</h1></div>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        {% if request.user.is_authenticated %}
+            <h3>You are now logged in as {{ request.user.username }}. </h3>
+            <p style="background-color: transparent">Click <a href="{% url 'logout_url' %}">here</a> to logout.</p>
+        {% else %}
+            <h3>You are not logged in. </h3>
+            <p style="background-color: transparent">Click <a href="{% url 'login_url' %}">here</a> to login or <a href="{% url 'reg2_url' %}">here</a> to register. </p>
+        {% endif %}
+    </div>
+    <br>
+{% endblock %}
